@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const db = require('../db/connection');
+const { addToOrder, cancelOrder, getOrderTotalPrice } = require('../db/queries/order');  // Import your query functions
 
 // Add items to an order (equivalent to adding to cart)
 router.post('/add', async (req, res) => {
