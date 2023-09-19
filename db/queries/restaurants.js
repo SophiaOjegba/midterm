@@ -1,34 +1,49 @@
- // Your database connection code
- const db = require('../connection');
+const db = require('../connection');
 
-
- // Browse all available menus for ordering
-const getAllAvailableMenus = () => {
-  return db.query('SELECT menus.id, menus.name, menus.description, menus.price FROM menus WHERE menus.quantity > 0;')
-    .then(data => {
-      return data.rows;
-    });
-};
-
-// See all restaurants
+// all restaurant
 const getAllRestaurants = () => {
-  return db.query('SELECT restaurants.id, restaurants.name, restaurants.country, restaurants.province, restaurants.street, restaurants.city, restaurants.postal_code FROM restaurants;')
+  return db.query('SELECT * FROM restaurants;')
     .then(data => {
       return data.rows;
+    })
+    .catch(error => {
+      throw error;
     });
 };
 
-// See more details about a menu item
-const getMenuDetails = (menuId) => {
-  return db.query('SELECT menus.name, menus.description, menus.price FROM menus WHERE menus.id = $1;', [menuId])
+//insert a new restaurant
+const insertRestaurant = (name, phone, country, province, street, city, postalCode) => {
+  return db.query('INSERT INTO restaurants (name, phone, country, province, street, city, postal_code) VALUES ($1, $2, $3, $4, $5, $6, $7) RETURNING *;', [name, phone, country, province, street, city, postalCode])
     .then(data => {
       return data.rows[0];
+    })
+    .catch(error => {
+      throw error;
     });
 };
 
+// update a restaurant's details by ID
+const updateRestaurant = (restaurantId, name, phone, country, province, street, city, postalCode) => {
+  return db.query('UPDATE restaurants SET name = $2, phone = $3, country = $4, province = $5, street = $6, city = $7, postal_code = $8 WHERE id = $1 RETURNING *;', [restaurantId, name, phone, country, province, street, city, postalCode])
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch(error => {
+      throw error;
+    });
+};
+
+// delete a restaurant by ID
+const deleteRestaurantById = (restaurantId) => {
+  return db.query('DELETE FROM restaurants WHERE id = $1;', [restaurantId])
+    .catch(error => {
+      throw error;
+    });
+};
 
 module.exports = {
-  getAllAvailableMenus,
   getAllRestaurants,
-  getMenuDetails,
+  insertRestaurant,
+  updateRestaurant,
+  deleteRestaurantById,
 };
