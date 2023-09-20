@@ -12,25 +12,34 @@
 </head>
 <body>
   <h1>Menus</h1>
-  <ul>
-    <% for(const menu of menus) { %>
-      <li>
-        <dl>
-          <!-- <dt>ID</dt><dd><%= menu.id %></dd> -->
-          <dt>Name</dt><dd><%= menu.name %></dd>
-          <dt>Description</dt><dd><%= menu.description %></dd>
-          <dt>Price</dt><dd><%= menu.price %></dd>
-        </dl>
+  <style>
+    .tblFormat {
+      font-family: monospace;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 60%;
+    }
+  </style>
 
-        <td>
-          <form method="POST" action="/order">
-            <button type="submit" class="btn btn-success">Order Now!</button>
-          </form>
-        </td>
-      </li>
-    <% }   %>
+  <% for(const menu of menus) { %>
+    <div class="tblFormat">
+      <div>ID: <%= menu.id %>
+      </div>
+      <div>Name: <%= menu.name %>
+      </div>
+      <div>Description: <%= menu.description %>
+      </div>
+      <div>Price: <%= menu.price %>
+      </div>
 
-  </ul> 
-  
+      <form method="POST" action="/cart">
+        <button type="submit" class="btn btn-success">Order Now!</button>
+      </form>
+    </div>
+    <% } %>
+
+
 </body>
+
 </html>
