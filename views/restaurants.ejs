@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>Restaurants</title>
+</head>
+<body>
+  <h3>All Restaurants</h3>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      border-style: dashed;
+      text-align: center;
+    }
+  </style>
+  <table>
+    <thead>
+      <tr>
+        <th>ID</th>&nbsp;
+        <th>Name</th>
+        <th>Country</th>
+        <th>Province</th>
+        <th>Street</th>
+        <th>City</th>
+        <th>Postal Code</th>
+        <th></th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(const restaurant of restaurants) { %>
+        <tr>
+          <td><%= restaurant.id %></td>
+          <td><%= restaurant.name %></td>
+          <td><%= restaurant.country %></td>
+          <td><%= restaurant.province %></td>
+          <td><%= restaurant.street %></td>
+          <td><%= restaurant.city %></td>
+          <td><%= restaurant.postal_code %></td>
+          <td>
+            <form method="POST" action="/cart">
+              <button type="submit" class="btn btn-success">Order Now!</button>
+            </form>
+          </td>
+        </tr>
+      <% }   %>
+    </tbody>
+  </table>
+</body>
+</html>
