@@ -13,7 +13,7 @@ router.get('/', (req, res) => {
     .then((orderItems) => {
 
      res.render('order_items',{order_items : orderItems});
-      
+
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
@@ -36,7 +36,7 @@ router.post('/', (req, res) => {
 });
 
 // Update order item by ID
-router.put('/order_items/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const orderItemId = req.params.id;
   const { menuId, orderId, itemQuantity, total } = req.body;
   updateOrderItem(orderItemId, menuId, orderId, itemQuantity, total)
@@ -53,7 +53,7 @@ router.put('/order_items/:id', (req, res) => {
 });
 
 // DELETE order item by ID
-router.delete('/order_items/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const orderItemId = req.params.id;
   deleteOrderItemById(orderItemId)
     .then(() => {

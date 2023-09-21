@@ -27,7 +27,7 @@ router.get('/', (req, res) => {
 });
 
 // new admin
-router.post('/admins', (req, res) => {
+router.post('/', (req, res) => {
   const { name, restaurantId } = req.body;
   insertAdmin(name, restaurantId)
     .then(admin => {
@@ -39,7 +39,7 @@ router.post('/admins', (req, res) => {
 });
 
 // update admin by ID
-router.put('/admins/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const adminId = req.params.id;
   const { name, restaurantId } = req.body;
   updateAdminName(adminId, name, restaurantId)
@@ -56,7 +56,7 @@ router.put('/admins/:id', (req, res) => {
 });
 
 // DELETE admin by ID
-router.delete('/admins/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const adminId = req.params.id;
   deleteAdminById(adminId)
     .then(() => {

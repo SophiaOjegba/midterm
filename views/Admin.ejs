@@ -1,37 +1,73 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-  <title>Admin</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <!--Js file -->
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script type="text/javascript" src="/scripts/app.js"></script>
+
+  <title> Incomimng orders</title>
 </head>
 <body>
-  <header>
-  </header>
 
-  <main>
-    <h2>Admin Panel</h2>
-    <h3>Incoming Orders</h3>
-    <ul>
-      <% for (let i = 0; i < incomingOrders.length; i++) { %>
-        <li>
-          <p>Order ID: <%= incomingOrders[i].id %></p>
-          <p>Total Amount: $<%= incomingOrders[i].total %></p>
-          <p>Menu Name: <%= incomingOrders[i].name %></p>
-          <p>Customer Name: <%= incomingOrders[i].customer_name %></p>
-          <p>Quantity: <%= incomingOrders[i].item_quantity %></p>
-       
-        </li>
-      <% } %>
-    </ul>
-  </main>
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+    }
 
-  <footer>
-  </footer>
-  <script>
-   
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      border-style: dashed;
+      text-align: center;
+    }
+  </style>
+    <table>
+      <thead>
+        <tr>
+          <th> Customer Name</th>&nbsp;
+          <th> Order ID </th>
+          <th> Menu Name </th>
+          <th> Quantity </th>
+          <th> Total Amount $ </th>
+
+        </tr>
+      </thead>
+      <tbody>
+        <% for (let i = 0; i < incomingOrders.length; i++) { %>
+          <tr>
+            <td><%=  incomingOrders[i].customer_name%> </td>
+            <td><%=  incomingOrders[i].id  %></td>
+            <td><%=  incomingOrders[i].name %></td>
+            <td><%=  incomingOrders[i].item_quantity %></td>
+            <td><%=  incomingOrders[i].total %></td>
+            <td>  <form method="POST" action="/Admin">
+                  <label for="minutes">minutes:</label>
+                  <input type="number" name="minutes" value= "" min="1" required> <button class="time">Estimated time</button>
 
 
-  </script>
+            </form></td>
+            <td>
+              <form method="POST" action="/cart">
+                <button type="submit" class="Ready">Ready for pickup!</button>
+              </form>
+            </td>
+          </tr>
+        <% }   %>
+      </tbody>
+    </table>
+
+
 </body>
 </html>
+
+
+

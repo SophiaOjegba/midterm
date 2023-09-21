@@ -35,7 +35,7 @@ router.post('/', (req, res) => {
 });
 
 //update a restaurant by ID
-router.put('/restaurants/:restaurantId', (req, res) => {
+router.put('/:restaurantId', (req, res) => {
   const restaurantId = req.params.restaurantId;
   const { name, phone, country, province, street, city, postalCode } = req.body;
   updateRestaurant(restaurantId, name, phone, country, province, street, city, postalCode)
@@ -52,7 +52,7 @@ router.put('/restaurants/:restaurantId', (req, res) => {
 });
 
 // DELETE a restaurant by ID
-router.delete('/restaurants/:restaurantId', (req, res) => {
+router.delete('/:restaurantId', (req, res) => {
   const restaurantId = req.params.restaurantId;
   deleteRestaurantById(restaurantId)
     .then(() => {

@@ -2,10 +2,11 @@ const db = require('../connection');
 
 //all orders
 const getAllOrders = () => {
-  return db.query(`SELECT * , menus.* , menus.name as menu_name , customers.name as customer_name FROM order_items 
+  return db.query(`SELECT * , menus.* , menus.name as menu_name , customers.name as customer_name FROM order_items
   left join menus on order_items.menu_id = menus.id
   left join orders on order_items.order_id = orders.id
   left join customers on orders.customer_id = customers.id
+
   ;`)
     .then(data => {
       return data.rows;

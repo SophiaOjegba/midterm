@@ -28,7 +28,7 @@ router.get('/', (req, res) => {
 });
 
 // new order
-router.post('/orders', (req, res) => {
+router.post('/', (req, res) => {
   const { customerId, restaurantId, orderDate, totalAmount, delivery, quantity } = req.body;
   insertOrder(customerId, restaurantId, orderDate, totalAmount, delivery, quantity)
     .then(order => {
@@ -40,7 +40,7 @@ router.post('/orders', (req, res) => {
 });
 
 // update an order by ID
-router.put('/orders/:orderId', (req, res) => {
+router.put('/:orderId', (req, res) => {
   const orderId = req.params.orderId;
   const { customerId, restaurantId, orderDate, totalAmount, delivery, quantity } = req.body;
   updateOrder(orderId, customerId, restaurantId, orderDate, totalAmount, delivery, quantity)
@@ -57,7 +57,7 @@ router.put('/orders/:orderId', (req, res) => {
 });
 
 // DELETE an order by ID
-router.delete('/orders/:orderId', (req, res) => {
+router.delete('/:orderId', (req, res) => {
   const orderId = req.params.orderId;
   deleteOrderById(orderId)
     .then(() => {
@@ -70,7 +70,7 @@ router.delete('/orders/:orderId', (req, res) => {
 
 
 // GET order history for a customer
-router.get('/customers/:customerId/orders/history', (req, res) => {
+router.get('/:orderId', (req, res) => {
   const customerId = req.params.customerId;
   getOrderHistoryByCustomerId(customerId)
     .then(orderHistory => {

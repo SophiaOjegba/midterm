@@ -7,7 +7,7 @@ const {
 } = require('../db/queries/order_status');
 
 //order status by order ID
-router.get('/order_status/:orderId', (req, res) => {
+router.get('/:orderId', (req, res) => {
   const orderId = req.params.orderId;
   getOrderStatusByOrderId(orderId)
     .then(orderStatus => {
@@ -23,7 +23,7 @@ router.get('/order_status/:orderId', (req, res) => {
 });
 
 // POST order status
-router.post('/order_status', (req, res) => {
+router.post('/', (req, res) => {
   const { orderId, ordered, estimatedFulfillmentTime, ready } = req.body;
   insertOrderStatus(orderId, ordered, estimatedFulfillmentTime, ready)
     .then(orderStatus => {
@@ -35,7 +35,7 @@ router.post('/order_status', (req, res) => {
 });
 
 // Update order status by order ID
-router.put('/order_status/:orderId', (req, res) => {
+router.put('/:orderId', (req, res) => {
   const orderId = req.params.orderId;
   const { ordered, estimatedFulfillmentTime, ready } = req.body;
   updateOrderStatusByOrderId(orderId, ordered, estimatedFulfillmentTime, ready)
