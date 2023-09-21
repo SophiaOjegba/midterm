@@ -1,32 +1,29 @@
-/*
- * All routes for Users are defined here
- * Since this file is loaded in server.js into /users,
- *   these routes are mounted onto /users
- * See: https://expressjs.com/en/guide/using-middleware.html#middleware.router
- */
-
 const express = require('express');
 const router = express.Router();
-const {
-  getAllRestaurants,
-  insertRestaurant,
+const { getAllRestaurants, getRestaurantById, insertRestaurant,
   updateRestaurant,
-  deleteRestaurantById,
-} = require('../db/queries/restaurants'); // Import your restaurants queries
+  deleteRestaurantById, } = require('../db/queries/restaurants');
 
-// all restaurants
-router.get('/restaurants', (req, res) => {
-  getAllRestaurants()
-    .then(restaurants => {
-      res.json({ restaurants });
-    })
-    .catch(err => {
-      res.status(500).json({ error: err.message });
-    });
+//Show all resturants
+router.get('/', (req, res) => {
+  getAllRestaurants().then((restaurants) => {
+    const templateVars = { restaurants };
+    res.render('restaurants', templateVars);
+  });
 });
 
+//Display specific restaurant
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+  getRestaurantById(id).then((restaurant) => {
+    const templateVars = { restaurant };
+    res.render('restaurant/', templateVars);
+  });
+});
+
+
 // new restaurant
-router.post('/restaurants', (req, res) => {
+router.post('/', (req, res) => {
   const { name, phone, country, province, street, city, postalCode } = req.body;
   insertRestaurant(name, phone, country, province, street, city, postalCode)
     .then(restaurant => {

@@ -26,6 +26,14 @@ app.use(
 );
 app.use(express.static('public'));
 
+////////////////////////////////////
+//Routes
+///////////////////////////////////
+
+////////////////////////////////////
+//Routes
+///////////////////////////////////
+
 // Add all routes here
 const ordersRoutes = require('./routes/orders');
 const adminsRoutes = require('./routes/admins');
@@ -48,6 +56,9 @@ app.use('/menus', menusRoutes);
 app.use('/order_items', order_itemsRoutes);
 app.use('/order_status', order_statusRoutes);
 app.use('/restaurants', restaurantsRoutes);
+
+
+
 // Note: mount other resources here, using the same pattern above
 
 //API

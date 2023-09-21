@@ -1,7 +1,9 @@
 const express = require('express');
 const router = express.Router();
+
 const {
   getAllMenus,
+  getMenuById,
   insertMenu,
   updateMenu,
   deleteMenuById,
@@ -18,6 +20,17 @@ router.get('/', (req, res) => {
       res.status(500).json({ error: err.message });
     });
 });
+
+//Display specific menu
+router.get('/:id', (req, res) => {
+  const id = req.params.id;
+  getMenuById(id).then((menu) => {
+    const templateVars = { menu };
+    res.render('cart', templateVars);
+  });
+});
+
+
 
 // new menu
 router.post('/', (req, res) => {
@@ -40,7 +53,7 @@ router.post('/', (req, res) => {
 });
 
 // Update menu by ID
-router.put('/menus/:id', (req, res) => {
+router.put('/:id', (req, res) => {
   const menuId = req.params.id;
   const {
     restaurantId,
@@ -65,7 +78,7 @@ router.put('/menus/:id', (req, res) => {
 });
 
 // DELETE menu by ID
-router.delete('/menus/:id', (req, res) => {
+router.delete('/:id', (req, res) => {
   const menuId = req.params.id;
   deleteMenuById(menuId)
     .then(() => {
