@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>Cart</title>
+</head>
+
+<body>
+
+  <style>
+    fieldset {
+      /* border-collapse: collapse; */
+      width: 60%;
+    }
+  </style>
+  <h3>Cart</h3>
+  <br>
+  <fieldset>
+    <legend>Chooose One Payment method:</legend>
+
+    <div>
+      <input type="radio" id="debitCard" name="drone" value="debitCard" checked>
+        <label for="cash">Debit Card, Visa, Mastercard, etc</label>
+    </div>
+
+    <div>
+      <input type="radio" id="cash" name="cash" value="cash">
+      <label for="cash">Cash</label>
+    </div>
+    <br>
+  </fieldset>
+
+  <style>
+    table {
+      border-collapse: collapse;
+      width: 50%;
+    }
+
+    th,
+    td {
+      border: 1px solid black;
+      padding: 8px;
+      border-style: dashed;
+      text-align: center;
+    }
+  </style>
+<div>
+  <table>
+    <tr>
+      <th colspan="4">Your Order:</th>
+    </tr>
+    <tr>
+      <th>Name</th>
+      <th>Description</th>
+      <th>Quantity</th>
+      <th>Price</th>
+    </tr>
+    <% for(const menu of orders) { %>
+        <tr>
+            <td>
+              <%= menu.name %>
+            </td>
+            <td>
+              <%= menu.description %>
+            </td>
+            <td>
+              <%= menu.quantity %>
+            </td>
+            <td>
+              <%= menu.price %>
+            </td>
+          </tr>
+
+
+    <%  } %>
+    
+    <tr>
+      <td colspan="3">Total</td>
+      <td><strong>
+        
+        </strong></td>
+    </tr>
+
+  </table>
+  </div>
+  <br>
+  <div>
+    <form method="POST" action="/payment">
+      <button type="submit" class="btn btn-success">Pay</button>
+    </form>
+  </div>
+</body>
+
+</html>

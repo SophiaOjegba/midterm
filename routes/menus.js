@@ -8,10 +8,11 @@ const {
 } = require('../db/queries/menus');
 
 //all menus
-router.get('/menus', (req, res) => {
+router.get('/', (req, res) => {
   getAllMenus()
-    .then(menus => {
-      res.json({ menus });
+    .then((menus) => {
+      // Render the EJS template and pass the menus data
+      res.render('menu', { menus });
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
@@ -19,7 +20,7 @@ router.get('/menus', (req, res) => {
 });
 
 // new menu
-router.post('/menus', (req, res) => {
+router.post('/', (req, res) => {
   const {
     restaurantId,
     name,

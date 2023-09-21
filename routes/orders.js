@@ -13,12 +13,16 @@ const {
   deleteOrderById,
   getOrderHistoryByCustomerId,
 } = require('../db/queries/orders');
+const {getAllOrderItems} = require('../db/queries/order_items');
+
 
 //all orders
-router.get('/orders', (req, res) => {
+router.get('/', (req, res) => {
   getAllOrders()
     .then(orders => {
-      res.json({ orders });
+      console.log(orders);
+      // res.json({ orders });
+      res.render('Admin',{incomingOrders: orders});
     })
     .catch(err => {
       res.status(500).json({ error: err.message });

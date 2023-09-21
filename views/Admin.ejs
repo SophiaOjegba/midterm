@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Admin</title>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+</head>
+<body>
+  <header>
+  </header>
+
+  <main>
+    <h2>Admin Panel</h2>
+    <h3>Incoming Orders</h3>
+    <ul>
+      <% for (let i = 0; i < incomingOrders.length; i++) { %>
+        <li>
+          <p>Order ID: <%= incomingOrders[i].id %></p>
+          <p>Total Amount: $<%= incomingOrders[i].total %></p>
+          <p>Menu Name: <%= incomingOrders[i].name %></p>
+          <p>Customer Name: <%= incomingOrders[i].customer_name %></p>
+          <p>Quantity: <%= incomingOrders[i].item_quantity %></p>
+       
+        </li>
+      <% } %>
+    </ul>
+  </main>
+
+  <footer>
+  </footer>
+  <script>
+   
+
+
+  </script>
+</body>
+</html>

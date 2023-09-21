@@ -8,10 +8,12 @@ const {
 } = require('../db/queries/order_items');
 
 // all order items
-router.get('/order_items', (req, res) => {
+router.get('/', (req, res) => {
   getAllOrderItems()
-    .then(orderItems => {
-      res.json({ orderItems });
+    .then((orderItems) => {
+
+     res.render('order_items',{order_items : orderItems});
+      
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
@@ -19,11 +21,14 @@ router.get('/order_items', (req, res) => {
 });
 
 //new order item
-router.post('/order_items', (req, res) => {
-  const { menuId, orderId, itemQuantity, total } = req.body;
+router.post('/', (req, res) => {
+  const { menuId, orderId, itemQuantity, price } = req.body;
+  const total = price*itemQuantity;
+  console.log(req.body);
   insertOrderItem(menuId, orderId, itemQuantity, total)
-    .then(orderItem => {
-      res.status(201).json({ orderItem });
+    .then((orderItem) => {
+      console.log('orderitem',orderItem);
+      res.render('order_items',{order_item : orderItem});
     })
     .catch(err => {
       res.status(500).json({ error: err.message });

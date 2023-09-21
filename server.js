@@ -5,7 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
-
+//const {sendMessage} = require('./service/twilioService');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
@@ -37,7 +37,7 @@ const restaurantsRoutes = require('./routes/restaurants');
 
 
 //API
-const userApiRoutes = require('./routes/users-api');
+//const userApiRoutes = require('./routes/users-api');
 
 // Mount all resource routes
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
@@ -51,7 +51,7 @@ app.use('/restaurants', restaurantsRoutes);
 // Note: mount other resources here, using the same pattern above
 
 //API
-app.use('/api/users', userApiRoutes);
+//app.use('/api/users', userApiRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!
@@ -64,3 +64,5 @@ app.get('/', (req, res) => {
 app.listen(PORT, () => {
   console.log(`Example app listening on port ${PORT}`);
 });
+
+// sendMessage();
