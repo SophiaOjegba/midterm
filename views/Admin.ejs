@@ -49,15 +49,15 @@
             <td><%=  incomingOrders[i].name %></td>
             <td><%=  incomingOrders[i].item_quantity %></td>
             <td><%=  incomingOrders[i].total %></td>
-            <td>  <form method="POST" action="/Admin">
+            <td>  <form method="POST">
                   <label for="minutes">minutes:</label>
-                  <input type="number" name="minutes" value= "" min="1" required> <button class="time">Estimated time</button>
+                  <input type="number" name="minutes" value= "" min="1" required> <button class="time" type="button">Estimated time</button>
 
 
             </form></td>
             <td>
-              <form method="POST" action="/cart">
-                <button type="submit" class="Ready">Ready for pickup!</button>
+              <form method="POST">
+                <button type="button" class="Ready">Ready for pickup!</button>
               </form>
             </td>
           </tr>

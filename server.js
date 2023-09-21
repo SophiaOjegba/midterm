@@ -68,11 +68,15 @@ app.get('/login/:id', (req, res) => {
 });
 
 app.post('/time', (req, res) => {
-  sendMessage(`Estimated Time: ${req.YOUR_OBJECT_KEY_HERE} minutes}`)
+  sendMessage(`Estimated Time: ${req.body.time} minutes}`)
 });
 
 app.post('/ready', (req, res) => {
   sendMessage("Order is ready")
+});
+
+app.post('/order_now', (req, res) => {
+  sendMessage("Order Has been placed by a customer")
 });
 
 

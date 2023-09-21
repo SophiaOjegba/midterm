@@ -7,6 +7,10 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
+        <!--Js file -->
+        <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+        <script type="text/javascript" src="/scripts/app.js"></script>
+
 
   <title>Menus</title>
 </head>
@@ -38,13 +42,13 @@
       <form method="post" action="/order_items">
       <label for="quantity">Quantity:</label>
       <input type="number" name="itemQuantity" value= "<%= menu.itemQuantity %> " min="1" required>
-     
+
        <!-- Hidden fields to store menu info -->
        <input type="hidden" name="menuId" value="<%= menu.id %>">
        <input type="hidden" name="name" value="<%= menu.name %>">
        <input type="hidden" name="price" value="<%= menu.price %>">
-       
-      <button type="submit" class="btn btn-success">Order Now!</button>
+
+      <button type="submit" class="order_now">Order Now!</button>
       </form>
     </div>
     <% } %>
