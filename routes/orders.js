@@ -13,8 +13,6 @@ const {
   deleteOrderById,
   getOrderHistoryByCustomerId,
 } = require('../db/queries/orders');
-const {getAllOrderItems} = require('../db/queries/order_items');
-
 
 //all orders
 router.get('/', (req, res) => {

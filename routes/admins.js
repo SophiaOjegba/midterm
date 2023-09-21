@@ -6,12 +6,20 @@ const {
   updateAdminName,
   deleteAdminById,
 } = require('../db/queries/admins');
+const {
+  getAllOrders,
+  insertOrder,
+  updateOrder,
+  deleteOrderById,
+  getOrderHistoryByCustomerId,
+} = require('../db/queries/orders');
 
 //all admins
-router.get('/admins', (req, res) => {
+router.get('/', (req, res) => {
   getAllAdmins()
     .then(admins => {
-      res.json({ admins });
+      res.redirect('/orders')
+      //res.json({ admins });
     })
     .catch(err => {
       res.status(500).json({ error: err.message });

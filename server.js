@@ -5,7 +5,7 @@ require('dotenv').config();
 const sassMiddleware = require('./lib/sass-middleware');
 const express = require('express');
 const morgan = require('morgan');
-//const {sendMessage} = require('./service/twilioService');
+const {sendMessage} = require('./service/twilioService');
 const PORT = process.env.PORT || 8080;
 const app = express();
 
