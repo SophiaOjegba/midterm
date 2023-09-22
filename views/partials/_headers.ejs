@@ -1,24 +1,23 @@
 <header>
-
+  <h1>ABS Food Pick-up Ordering</h1>
     <nav class="navbar">
       <ul class="nav-links">
           <li class="nav-item"><a href="/">Home</a></li>
           <li class="nav-item"><a href="/menus">Menu</a></li>
           <li class="nav-item"><a href="/restaurants">Restaurant</a></li>
-          <!-- <li class="nav-item"><a href="/orders">Admin Panel</a></li> -->
           <li class="nav-item"><a href="/about">About</a></li>
-      </ul>
-  </nav>
-    <% if (customer && customer.name) { %>
+    <li class="nav-item"> <% if (customer && customer.name) { %>
     <form method="POST" action="/logout" class="form-inline">
       <div class="form-group form-inline">
-        <label>Logged In As: <%=customer.name%></label>
-        <button type="submit" class="btn btn-outline-dark" style="margin: 1em">Logout</button>
+        <label>Logged In As: <%=customer.name%>
+        <button type="submit">Logout</button></label>
       </div>
     </form>
 
     <%} else { %>
-      <button type="submit" style="float: right"> <a href="/login">Login</a></button>
-    <% } %>
-  </nav>
+      <a href="/login">Login</a>
+    <% } %></li>
+  </ul>
+</nav>
 </header>
+

@@ -16,7 +16,6 @@ router.get('/', (req, res) => {
   }
   getAllMenus()
     .then((menus) => {
-      // Render the EJS template and pass the menus data
       res.render('menu', { menus, customer });
     })
     .catch(err => {

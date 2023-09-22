@@ -8,22 +8,21 @@ html {
 }
 
 body {
-  font-family: Gill Sans, Gill Sans MT, Myriad Pro, DejaVu Sans Condensed,
-    Helvetica, Arial, "sans-serif";
+  font-family: sans-serif;
   font-size: 1em;
   line-height: 1.25em;
   word-spacing: 0.1em;
   background-color: tan;
 }
 
-img {
-  width: 100%;
-  height: auto;
-  max-width: 100%;
+.menu-item {
+  width: 50%;
+  max-width: 400px;
 }
+
 div {
   width: 100%;
-  background-color: white;
+
 }
 ul,ol {
   padding-left: 1.5rem;
@@ -34,8 +33,6 @@ ul,ol {
   margin-left: auto;
   margin-right: auto;
   grid-template-columns: repeat(12, 1fr);
-  /*justify-content: center;
-  align-content: center;*/
   grid-gap: 10px;
 }
 
@@ -73,7 +70,8 @@ nav {
   width: 100%;
   padding-left: 0;
   height: -webkit-fill-available;
-  row-gap: 5px;
+  row-gap: 4px;
+  margin: 0;
 
 }
 /* Style the links inside the navigation bar */
@@ -95,15 +93,10 @@ nav {
 
 }
 
-/*
-nav ul {
-  display: flex;
-  list-style: none;
-  justify-content: space-between;
+.about {
   margin: 0;
-  padding: 0;
+  padding: 1.5em;
 }
-*/
 
 .header {
   display: flex;
@@ -169,13 +162,9 @@ nav ul {
     padding-left: 1vw;
   }
 
-  .nav-links {
-    height: 5vh;
-    margin: 0;
-  }
+
   .nav-item {
     width: 20%;
-    border: 1px #fff solid;
   }
   /* Change the color of links on hover */
   .nav-item:hover {
@@ -189,6 +178,10 @@ nav ul {
 
   .nav-item a {
     padding: 0;
+  }
+
+  .order_now:hover {
+    background-color: #9c9976;
   }
 
   .title1 {

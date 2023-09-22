@@ -38,7 +38,10 @@
       <div hidden>
         ID : <%= menu.id %>
       </div>
-      <div>Name: <%= menu.name %>
+      <div >
+        <img src="<%= menu.food_image_url %>" alt="<%= menu.name %>" class="menu-item">
+      </div>
+      <div> <%= menu.name %>
       </div>
       <div>Description: <%= menu.description %>
       </div>
@@ -61,5 +64,7 @@
 
 
 </body>
-
+<footer class="footer">
+  &copy; 2023 Food Ordering App
+</footer>
 </html>

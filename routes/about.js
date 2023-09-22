@@ -10,3 +10,4 @@ router.get('/', (req, res) => {
 
   res.render('about', { customer });
 });
+module.exports = router;

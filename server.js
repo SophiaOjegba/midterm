@@ -51,7 +51,7 @@ app.use('/menus', menusRoutes);
 app.use('/order_items', order_itemsRoutes);
 app.use('/order_status', order_statusRoutes);
 app.use('/restaurants', restaurantsRoutes);
-// app.use('./about', aboutRoutes);
+app.use('/about', aboutRoutes);
 
 app.get('/', (req, res) => {
   // If user is logged in {pass userData}

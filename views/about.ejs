@@ -2,11 +2,11 @@
 <html lang="en">
 
 <head>
-  <title>Users</title>
+  <title>About Us</title>
 
-  <meta charset="UTF-8" >
-  <meta http-equiv="X-UA-Compatible" content="IE=edge" >
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" >
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
   <link rel="stylesheet" href="/vendor/normalize-4.1.1.css" />
   <link rel="stylesheet" href="/vendor/border-box.css" />
@@ -14,14 +14,37 @@
   <link rel="stylesheet" href="/styles/layout.css" />
 
   <script src="/vendor/jquery-3.0.0.js"></script>
-  <script defer src="/scripts/users.js"></script>
+  <script defer src="/scripts/about.js"></script>
 </head>
 
 <body>
   <%- include("partials/_headers") %>
-  <h1>Users</h1>
-  <button id="fetch-users">Fetch Users via AJAX</button>
-  <ul id="users"></ul>
-</body>
+  <main class="about">
+    <h1>About Us</h1>
+    <p>Welcome to our food ordering app! We are passionate about delivering delicious food right to your doorstep.</p>
+    <p>Our mission is to make your dining experience convenient, tasty, and enjoyable.</p>
+    <h2>Why Choose Us?</h2>
+    <ul>
+      <li>Wide Menu Selection</li>
+      <li>Easy Ordering Process</li>
+      <li>Quick and Reliable Delivery</li>
+      <li>High-Quality Ingredients</li>
+      <li>Customer Satisfaction Guaranteed</li>
+    </ul>
+    <h2>Our Team</h2>
+    <div class="team-member">
+      <h3>John Doe</h3>
+      <p>Co-founder & Chef</p>
+    </div>
+    <div class="team-member">
+      <h3>Jane Smith</h3>
+      <p>Co-founder & Food Critic</p>
+    </div>
+  </main>
 
+</body>
+<footer class="footer">
+  &copy; 2023 Food Ordering App
+</footer>
 </html>
+

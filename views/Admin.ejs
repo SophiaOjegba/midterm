@@ -44,7 +44,7 @@
           <th> Menu Name </th>
           <th> Quantity </th>
           <th> Total Amount $ </th>
-          <th> Ortder Time</th>
+          <th> Order Time</th>
           <th> Pickup Confirmation </th>
           <th> Completed</th>
 
@@ -72,7 +72,6 @@
             <td><% if (incomingOrders[i].status === 1) { %>
               <input type="checkbox" id="completed" name="completed" checked>
 
-
               <%} else { %>
                 <input type="checkbox" id="completed" name="completed" >
               <% } %></td>
@@ -81,7 +80,9 @@
       </tbody>
     </table>
 
-
+    <footer class="footer">
+      &copy; 2023 Food Ordering App
+    </footer>
 </body>
 </html>
 
