@@ -30,44 +30,29 @@ app.use(express.static('public'));
 //Routes
 ///////////////////////////////////
 
-////////////////////////////////////
-//Routes
-///////////////////////////////////
 
-// Add all routes here
-const ordersRoutes = require('./routes/orders');
-const adminsRoutes = require('./routes/admins');
-const customersRoutes = require('./routes/customers');
-const menusRoutes = require('./routes/menus');
-const order_itemsRoutes = require('./routes/order_items');
-const order_statusRoutes = require('./routes/order_status');
-const restaurantsRoutes = require('./routes/restaurants');
+// Separated Routes for each Resource
+// Note: Feel free to replace the example routes below with your own
 
 
-//API
-const userApiRoutes = require('./routes/users-api');
+
+
 const menusRoutes = require('./routes/menus');
 const cartRoutes = require('./routes/menus');
 const restaurantRoutes = require('./routes/restaurants');
+const ordersRoutes = require('./routes/orders');
 
 // Mount all resource routes
+// Note: Feel free to replace the example routes below with your own
 // Note: Endpoints that return data (eg. JSON) usually start with `/api`
-app.use('/orders', ordersRoutes);
-app.use('/admins', adminsRoutes);
-app.use('/customers', customersRoutes);
-app.use('/menus', menusRoutes);
-app.use('/order_items', order_itemsRoutes);
-app.use('/order_status', order_statusRoutes);
-app.use('/restaurants', restaurantsRoutes);
+
 
 
 app.use('/menus', menusRoutes);
 app.use('/cart', cartRoutes);
 app.use('/restaurants', restaurantRoutes);
+app.use('/orders', ordersRoutes);
 // Note: mount other resources here, using the same pattern above
-
-//API
-app.use('/api/users', userApiRoutes);
 
 // Home page
 // Warning: avoid creating more routes in this file!

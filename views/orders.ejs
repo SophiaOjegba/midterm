@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Order Details</title>
+</head>
+<body>
+  <h1>All orders</h1>
+  <style>
+    .tblFormat {
+      font-family: monospace;
+      border: 1px solid #ccc;
+      padding: 10px;
+      margin-bottom: 10px;
+      width: 60%;
+    }
+  </style>
+
+  <% for(const order of orders) { %>
+    <div class="tblFormat">
+     <div>Order ID: <%= order.id %></div>
+      <div>Customer ID: <%= order.customer_id %></div>
+      <div>Restaurant ID: <%= order.restaurant_id %></div>
+      <div>Order Date: <%= order.order_date %></div>
+      <div>Total Amount: $<%= order.total_amount %></div>
+      <div>Delivery: <%= order.delivery ? 'Yes' : 'No' %></div>
+      <div>Quantity: <%= order.quantity %></div>
+    </div>
+  <% } %>
+
+</body>
+</html>
