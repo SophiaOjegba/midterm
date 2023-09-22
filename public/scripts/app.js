@@ -1,5 +1,6 @@
 // Client facing scripts here
 $(document).ready ( function (){
+  $('.slider').hide();
 
   //  "Estimated time" button click
   $('.time').on('click', function() {
@@ -17,8 +18,17 @@ $(document).ready ( function (){
 
 
  //Order now button
-  $('.order_now').on('click', function() {
-    $.post( '/order_now');
+  $('.order_now').on('click', function(event) {
+    event.preventDefault();
+    setTimeout(function (){
+      $.post( '/order_now');
+      $('.slider').slideDown('slow');
+    }, 2000)
+    setTimeout(function (){
+      $('.slider').hide();
+    }, 4000)
   });
+
 })
+
 

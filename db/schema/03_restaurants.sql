@@ -9,5 +9,6 @@ CREATE TABLE restaurants (
   province VARCHAR(255) NOT NULL,
   street VARCHAR(255) NOT NULL,
   city VARCHAR(255) NOT NULL,
-  postal_code VARCHAR(255) NOT NULL
+  postal_code VARCHAR(255) NOT NULL,
+  restaurant_image_url VARCHAR(255) NOT NULL
 );

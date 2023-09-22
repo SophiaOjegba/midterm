@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
-    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
-
-
-    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css">
-    <link rel="stylesheet" href="/vendor/border-box.css">
-    <link rel="stylesheet" href="/styles/main.css">
-    <link rel="stylesheet" href="/styles/layout.css">
 
   <title>Restaurants</title>
 </head>
@@ -32,10 +21,10 @@
       text-align: center;
     }
   </style>
-  <table>
+  <table class="restaurant-table">
     <thead>
       <tr>
-        <th>ID</th>&nbsp;
+        <th></th>
         <th>Name</th>
         <th>Country</th>
         <th>Province</th>
@@ -48,7 +37,7 @@
     <tbody>
       <% for(const restaurant of restaurants) { %>
         <tr>
-          <td><%= restaurant.id %></td>
+          <td><img src= '<%= restaurant.restaurant_image_url %>' class="restaurant-item"> </td>
           <td><%= restaurant.name %></td>
           <td><%= restaurant.country %></td>
           <td><%= restaurant.province %></td>

@@ -35,28 +35,25 @@ app.use(cookieSession({
 
 // Add all routes here
 const ordersRoutes = require('./routes/orders');
-const adminsRoutes = require('./routes/admins');
-const customersRoutes = require('./routes/customers');
+// const adminsRoutes = require('./routes/admins');
+// const customersRoutes = require('./routes/customers');
 const menusRoutes = require('./routes/menus');
 const order_itemsRoutes = require('./routes/order_items');
-const order_statusRoutes = require('./routes/order_status');
+// const order_statusRoutes = require('./routes/order_status');
 const restaurantsRoutes = require('./routes/restaurants');
 const aboutRoutes = require('./routes/about')
 
 
 app.use('/orders', ordersRoutes);
-app.use('/admins', adminsRoutes);
-app.use('/customers', customersRoutes);
+// app.use('/admins', adminsRoutes);
+// app.use('/customers', customersRoutes);
 app.use('/menus', menusRoutes);
 app.use('/order_items', order_itemsRoutes);
-app.use('/order_status', order_statusRoutes);
+// app.use('/order_status', order_statusRoutes);
 app.use('/restaurants', restaurantsRoutes);
 app.use('/about', aboutRoutes);
 
 app.get('/', (req, res) => {
-  // If user is logged in {pass userData}
-  // If user is not logged in {pass emptyUserData}
-  //Need to look for user
   const customer = {
     name : 'John'
   }

@@ -25,13 +25,16 @@ router.get('/', (req, res) => {
 
 //new order item
 router.post('/', (req, res) => {
+  const customer = {
+    name : 'John'
+  }
   const { menuId, orderId, itemQuantity, price } = req.body;
   const total = price*itemQuantity;
   console.log(req.body);
   insertOrderItem(menuId, orderId, itemQuantity, total)
     .then((orderItem) => {
       console.log('orderitem',orderItem);
-      res.render('order_items',{order_item : orderItem});
+      res.render('order_items',{order_item : orderItem, customer});
     })
     .catch(err => {
       res.status(500).json({ error: err.message });
