@@ -8,8 +8,8 @@ const morgan = require('morgan');
 const PORT = process.env.PORT || 8080;
 const app = express();
 const cookieSession = require('cookie-session')
-const { MessagingResponse } = require('twilio').twiml;
 const {sendMessage} = require ('./service/twilioService')
+const {completedOrder} = require ('./db/queries/order_items')
 
 app.set('view engine', 'ejs');
 
@@ -41,6 +41,7 @@ const menusRoutes = require('./routes/menus');
 const order_itemsRoutes = require('./routes/order_items');
 const order_statusRoutes = require('./routes/order_status');
 const restaurantsRoutes = require('./routes/restaurants');
+const aboutRoutes = require('./routes/about')
 
 
 app.use('/orders', ordersRoutes);
@@ -50,21 +51,45 @@ app.use('/menus', menusRoutes);
 app.use('/order_items', order_itemsRoutes);
 app.use('/order_status', order_statusRoutes);
 app.use('/restaurants', restaurantsRoutes);
+// app.use('./about', aboutRoutes);
 
 app.get('/', (req, res) => {
-  res.render('index');
+  // If user is logged in {pass userData}
+  // If user is not logged in {pass emptyUserData}
+  //Need to look for user
+  const customer = {
+    name : 'John'
+  }
+  const templatvars = {
+    customer
+  }
+  res.render('index',  templatvars );
 });
 
 // Login
-app.get('/login/:id', (req, res) => {
-  // using encrypted cookies
-  req.session.user_id = req.params.id;
-
-  // or using plain-text cookies
-  res.cookie('user_id', req.params.id);
+app.get('/login', (req, res) => {
 
   // send the user somewhere
-  res.redirect('/');
+  const customer = {
+    name : 'John'
+  }
+  const templatvars = {
+    customer
+  }
+
+  res.render(`index`, templatvars );
+});
+
+app.post('/logout', (req, res) => {
+
+  const customer = {
+    name : null
+  }
+  const templatvars = {
+    customer
+  }
+
+  res.render(`index`, templatvars );
 });
 
 app.post('/time', (req, res) => {
@@ -72,7 +97,11 @@ app.post('/time', (req, res) => {
 });
 
 app.post('/ready', (req, res) => {
-  sendMessage("Order is ready")
+  const order_item_id = req.body.order_item_id
+  completedOrder(order_item_id)
+  .then (response => {
+    sendMessage("Order is ready")
+  })
 });
 
 app.post('/order_now', (req, res) => {

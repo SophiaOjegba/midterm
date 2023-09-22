@@ -6,5 +6,6 @@ CREATE TABLE order_items (
   menu_id INT REFERENCES menus(id) ON DELETE CASCADE,
   order_id INT REFERENCES orders(id) ON DELETE CASCADE,
   item_quantity INT NOT NULL,
-  total DECIMAL(10, 2) NOT NULL
+  total DECIMAL(10, 2) NOT NULL,
+  status INTEGER DEFAULT 0
 );

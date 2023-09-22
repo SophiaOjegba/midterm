@@ -6,13 +6,7 @@ const {
   updateAdminName,
   deleteAdminById,
 } = require('../db/queries/admins');
-const {
-  getAllOrders,
-  insertOrder,
-  updateOrder,
-  deleteOrderById,
-  getOrderHistoryByCustomerId,
-} = require('../db/queries/orders');
+
 
 //all admins
 router.get('/', (req, res) => {

@@ -11,10 +11,13 @@ const {
 
 //all menus
 router.get('/', (req, res) => {
+  const customer = {
+    name : 'John'
+  }
   getAllMenus()
     .then((menus) => {
       // Render the EJS template and pass the menus data
-      res.render('menu', { menus });
+      res.render('menu', { menus, customer });
     })
     .catch(err => {
       res.status(500).json({ error: err.message });

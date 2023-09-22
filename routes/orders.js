@@ -16,11 +16,13 @@ const {
 
 //all orders
 router.get('/', (req, res) => {
+  const customer = {
+    name : 'John'
+  }
   getAllOrders()
     .then(orders => {
       console.log(orders);
-      // res.json({ orders });
-      res.render('Admin',{incomingOrders: orders});
+      res.render('Admin',{incomingOrders: orders, customer});
     })
     .catch(err => {
       res.status(500).json({ error: err.message });

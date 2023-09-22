@@ -11,6 +11,18 @@ const getAllOrderItems = (orderId) => {
     });
 };
 
+//update an order item's details by ID
+const completedOrder = (order_item_id) => {
+  console.log('this is order_item_id', order_item_id)
+  return db.query('UPDATE order_items SET status = $1 WHERE id = $2 RETURNING *;', [1, order_item_id])
+    .then(data => {
+      return data.rows[0];
+    })
+    .catch(error => {
+      throw error;
+    });
+};
+
 // new order item
 const insertOrderItem = (menuId, orderId, itemQuantity, total) => {
   return db.query('INSERT INTO order_items (menu_id, order_id, item_quantity, total) VALUES ($1, $2, $3, $4) RETURNING *;', [menuId, orderId, itemQuantity, total])
@@ -46,4 +58,5 @@ module.exports = {
   insertOrderItem,
   updateOrderItem,
   deleteOrderItemById,
+  completedOrder,
 };

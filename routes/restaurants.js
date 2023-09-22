@@ -6,8 +6,11 @@ const { getAllRestaurants, getRestaurantById, insertRestaurant,
 
 //Show all resturants
 router.get('/', (req, res) => {
+  const customer = {
+    name : 'John'
+  }
   getAllRestaurants().then((restaurants) => {
-    const templateVars = { restaurants };
+    const templateVars = { restaurants, customer };
     res.render('restaurants', templateVars);
   });
 });
@@ -53,6 +56,7 @@ router.put('/:restaurantId', (req, res) => {
 
 // DELETE a restaurant by ID
 router.delete('/:restaurantId', (req, res) => {
+
   const restaurantId = req.params.restaurantId;
   deleteRestaurantById(restaurantId)
     .then(() => {

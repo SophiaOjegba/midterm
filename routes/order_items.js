@@ -9,10 +9,13 @@ const {
 
 // all order items
 router.get('/', (req, res) => {
+  const customer = {
+    name : 'John'
+  }
   getAllOrderItems()
     .then((orderItems) => {
 
-     res.render('order_items',{order_items : orderItems});
+     res.render('order_items',{order_items : orderItems, customer});
 
     })
     .catch(err => {

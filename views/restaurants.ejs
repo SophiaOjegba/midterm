@@ -6,9 +6,17 @@
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+
+
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css">
+    <link rel="stylesheet" href="/vendor/border-box.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+
   <title>Restaurants</title>
 </head>
 <body>
+  <%- include("partials/_headers") %>
   <h3>All Restaurants</h3>
   <style>
     table {
@@ -48,7 +56,7 @@
           <td><%= restaurant.city %></td>
           <td><%= restaurant.postal_code %></td>
           <td>
-            <form method="POST" action="/cart">
+            <form method="GET" action="/menus">
               <button type="submit" class="btn btn-success">Order Now!</button>
             </form>
           </td>

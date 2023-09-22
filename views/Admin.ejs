@@ -8,6 +8,13 @@
     integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
 
 
+    <link rel="stylesheet" href="/vendor/normalize-4.1.1.css">
+    <link rel="stylesheet" href="/vendor/border-box.css">
+    <link rel="stylesheet" href="/styles/main.css">
+    <link rel="stylesheet" href="/styles/layout.css">
+
+
+
     <!--Js file -->
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript" src="/scripts/app.js"></script>
@@ -15,7 +22,7 @@
   <title> Incomimng orders</title>
 </head>
 <body>
-
+  <%- include("partials/_headers") %>
   <style>
     table {
       border-collapse: collapse;
@@ -33,19 +40,20 @@
     <table>
       <thead>
         <tr>
-          <th> Customer Name</th>&nbsp;
-          <th> Order ID </th>
+
           <th> Menu Name </th>
           <th> Quantity </th>
           <th> Total Amount $ </th>
+          <th> Ortder Time</th>
+          <th> Pickup Confirmation </th>
+          <th> Completed</th>
 
         </tr>
       </thead>
       <tbody>
         <% for (let i = 0; i < incomingOrders.length; i++) { %>
           <tr>
-            <td><%=  incomingOrders[i].customer_name%> </td>
-            <td><%=  incomingOrders[i].id  %></td>
+
             <td><%=  incomingOrders[i].name %></td>
             <td><%=  incomingOrders[i].item_quantity %></td>
             <td><%=  incomingOrders[i].total %></td>
@@ -57,9 +65,17 @@
             </form></td>
             <td>
               <form method="POST">
+                <input type="hidden" value="<%= incomingOrders[i].id %>" name="order_item_id" class="order_item_id">
                 <button type="button" class="Ready">Ready for pickup!</button>
               </form>
             </td>
+            <td><% if (incomingOrders[i].status === 1) { %>
+              <input type="checkbox" id="completed" name="completed" checked>
+
+
+              <%} else { %>
+                <input type="checkbox" id="completed" name="completed" >
+              <% } %></td>
           </tr>
         <% }   %>
       </tbody>

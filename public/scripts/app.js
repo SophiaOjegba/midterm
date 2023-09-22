@@ -11,7 +11,8 @@ $(document).ready ( function (){
 
   // Ready button click
   $('.Ready').on('click', function() {
-    $.post( '/Ready');
+    const order_item_id = $(this).parent().find('.order_item_id').val()
+    $.post( '/Ready', {order_item_id});
   });
 
 
