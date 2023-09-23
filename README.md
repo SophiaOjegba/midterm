@@ -35,9 +35,21 @@ LHL Node Skeleton
 - sass "^1.35.1",
 - twilio "^4.18.0"
 
+We used JavaScript, Express, EJS, AJAX, jQuery, PostgreSQL. Twilio (for the SMS).
 
 ## ERD
 ![ERD](https://github.com/SophiaOjegba/midterm/blob/master/docs/ERD.png?raw=true)
 
 # Final Product
 ## Home Page
+![Home Page](https://github.com/SophiaOjegba/midterm/blob/master/docs/Home_page.png?raw=true)
+
+
+## Menu Page
+![Menu page](https://github.com/SophiaOjegba/midterm/blob/master/docs/menu_page.png?raw=true)
+
+## Restauarant Page
+![Restaurant Page](https://github.com/SophiaOjegba/midterm/blob/master/docs/restaurant_page.png?raw=true)
+
+## Admin Page
+![Admin Page](https://github.com/SophiaOjegba/midterm/blob/master/docs/Admin_page.png?raw=true)
