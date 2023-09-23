@@ -102,7 +102,7 @@ app.post('/ready', (req, res) => {
 });
 
 app.post('/order_now', (req, res) => {
-  sendMessage("Order Has been placed by a customer")
+  sendMessage("Order Has been placed by John")
 });
 
 

@@ -7,8 +7,8 @@ function sendMessage(message) {
   client.messages
     .create({
       body: message,
-      from: '+15856696427', // Your Twilio number
-      to: '+12268996042'   // Destination number
+      from: 'whatsapp:+14155238886', // Your Twilio number
+      to: 'whatsapp:+12268996042'   // Destination number
     })
     .then(message => console.log(message.sid));
 

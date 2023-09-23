@@ -21,7 +21,7 @@ router.get('/', (req, res) => {
   }
   getAllOrders()
     .then(orders => {
-      console.log(orders);
+
       res.render('Admin',{incomingOrders: orders, customer});
     })
     .catch(err => {
@@ -31,10 +31,14 @@ router.get('/', (req, res) => {
 
 // new order
 router.post('/', (req, res) => {
+  const customer = {
+    name : 'John'
+  }
   const { customerId, restaurantId, orderDate, totalAmount, delivery, quantity } = req.body;
   insertOrder(customerId, restaurantId, orderDate, totalAmount, delivery, quantity)
     .then(order => {
-      res.status(201).json({ order });
+      console.log(orders);
+      res.render('Admin',{incomingOrders: order, customer});
     })
     .catch(err => {
       res.status(500).json({ error: err.message });

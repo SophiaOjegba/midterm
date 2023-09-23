@@ -18,15 +18,14 @@ $(document).ready ( function (){
 
 
  //Order now button
-  $('.order_now').on('click', function(event) {
-    event.preventDefault();
+  $('.order_now').on('click', function() {
+    $.post( '/order_now');
     setTimeout(function (){
-      $.post( '/order_now');
       $('.slider').slideDown('slow');
     }, 2000)
     setTimeout(function (){
       $('.slider').hide();
-    }, 4000)
+    }, 5000)
   });
 
 })

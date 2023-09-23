@@ -18,35 +18,37 @@
     }
   </style>
 
-  <% for(const menu of menus) { %>
-    <div class="tblFormat">
-      </div>
-      <div hidden>
-        ID : <%= menu.id %>
-      </div>
-      <div >
-        <img src="<%= menu.food_image_url %>" alt="<%= menu.name %>" class="menu-item">
-      </div>
-      <div> <%= menu.name %>
-      </div>
-      <div>Description: <%= menu.description %>
-      </div>
-      <div>Price: <%= menu.price %>
-      </div>
+<% for(const menu of menus) { %>
+  <div class="tblFormat">
 
-      <form method="post" action="/order_items">
-      <label for="quantity">Quantity:</label>
-      <input type="number" name="itemQuantity" value= "<%= menu.itemQuantity %> " min="1" required>
-
-       <!-- Hidden fields to store menu info -->
-       <input type="hidden" name="menuId" value="<%= menu.id %>">
-       <input type="hidden" name="name" value="<%= menu.name %>">
-       <input type="hidden" name="price" value="<%= menu.price %>">
-
-      <button type="submit" class="order_now">Order Now!</button>
-      </form>
+    <div hidden>
+      ID : <%= menu.id %>
     </div>
-    <% } %>
+    <div>
+      <img src="<%= menu.food_image_url %>" alt="<%= menu.name %>" class="menu-item">
+    </div>
+    <div> <%= menu.name %>
+    </div>
+    <div>Description: <%= menu.description %>
+    </div>
+    <div>Price: $<%= menu.price %>
+    </div>
+
+    <form method="post" action="/order_items">
+    <label for="quantity">Quantity:</label>
+    <input type="number" name="itemQuantity" value= "<%= menu.itemQuantity %> " min="1" required>
+
+     <!-- Hidden fields to store menu info -->
+     <input type="hidden" name="menuId" value="<%= menu.id %>">
+     <input type="hidden" name="name" value="<%= menu.name %>">
+     <input type="hidden" name="price" value="<%= menu.price %>">
+
+
+    <button type="submit" class="order_now">Order Now!</button>
+    </form>
+  </div>
+  </div>
+  <% } %>
 
 
 </body>
